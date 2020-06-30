@@ -1,7 +1,7 @@
 Ansible Role: Template
 =========
 
-This Role used for install NoSQL database system [Couchbash](https://www.couchbase.com/)
+This Role used for install application Server [Passenger](https://www.phusionpassenger.com/)
 
 ## Requirements
 
