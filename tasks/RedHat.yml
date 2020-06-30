@@ -2,7 +2,6 @@
   shell: |
     yum install -y pygpgme curl
     curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo
-    
 
 - name: Instal Passenger
   shell: yum install -y passenger || sudo yum-config-manager --enable cr && sudo yum install -y passenger
