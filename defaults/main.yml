@@ -1,0 +1,8 @@
+#CURRENT INTEGRATION: nginx | apache | standalone
+#If use nginx or apache, this role must depend on role_nginx or role_apache
+passenger_integration: nginx
+
+
+#CURRENT LANGUAGE: python | ruby | node | meteor
+#passenger_language: python
+
