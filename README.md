@@ -1,7 +1,7 @@
 Ansible Role: Passenger
 =========
 
-This Role used for install application Server [Passenger](https://www.phusionpassenger.com/)
+This Role used for install application Server [Passenger](https://www.phusionpassenger.com/) which is a fast and robust web server and application server for Ruby, Python and Node.js
 
 ## Requirements
 
