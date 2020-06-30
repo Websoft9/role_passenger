@@ -1,4 +1,4 @@
-Ansible Role: Template
+Ansible Role: Passenger
 =========
 
 This Role used for install application Server [Passenger](https://www.phusionpassenger.com/)
