@@ -1,27 +1,23 @@
-- name: Prepare apt for Passenger installation
+- name: Prepare yum for Passenger installation
   shell: |
-    apt-get install -y dirmngr gnupg
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
-    apt-get install -y apt-transport-https ca-certificates
-    sudo sh -c 'echo "deb https://oss-binaries.phusionpassenger.com/apt/passenger {{ansible_distribution_version}} main" > /etc/apt/sources.list.d/passenger.list'
-    apt-get update
-    apt-get install -y passenger
+    yum install -y pygpgme curl
+    curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo
+    
 
 - name: Instal Passenger
-  shell: apt-get install -y passenger
+  shell: yum install -y passenger || sudo yum-config-manager --enable cr && sudo yum install -y passenger
   when: passenger_integration == "standalone"
 
 - name: Instal Passenger integrate {{passenger_integration}}
   shell: |
-    apt-get install -y libapache2-mod-passenger
-    a2enmod passenger
-    systemctl restart apache2
+    yum install -y mod_passenger || sudo yum-config-manager --enable cr && sudo yum install -y mod_passenger
+    systemctl restart httpd
   when: passenger_integration == "apache"
 
+# error for this task
 - name: Instal Passenger integrate {{passenger_integration}}
   shell: |
-    apt-get install -y libnginx-mod-http-passenger
-    a2enmod passenger
+    yum install -y nginx-mod-http-passenger || sudo yum-config-manager --enable cr && sudo yum install -y nginx-mod-http-passenger
     systemctl restart nginx
   when: passenger_integration == "nginx"
 
