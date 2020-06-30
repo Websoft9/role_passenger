@@ -12,7 +12,7 @@ Make sure these requirements need before the installation
 | Operating system | CentOS7.x Ubuntu18.04 AmazonLinux|
 | Python version | Python2  |
 | Python Components |    |
-| Runtime |  |
+| Runtime | one of python,ruby,node |
 
 
 ## Related roles
@@ -22,9 +22,11 @@ This Role does not depend on other role variables in syntax, but it depend on ot
 ```
   roles:
     - {role: role_common, tags: "role_common"}
-    - {role: role_template, tags: "role_template"}
+    - {role: role_template, tags: "role_apache"}
+    - {role: role_template, tags: "role_nginx"}
+    - {role: role_template, tags: "role_python"}
+    - {role: role_template, tags: "role_ruby"}
 ```
-
 
 ## Variables
 
@@ -42,17 +44,7 @@ notes:
 ## Example
 
 ```
-- name: Memcached
-  hosts: all
-  become: yes
-  become_method: sudo 
-  vars_files:
-    - vars/main.yml 
 
-  roles:
-    - {role: role_common, tags: "role_common"}
-    - {role: role_cloud, tags: "role_cloud"}
-    - {role: role_template, tags: "role_template"}
 ```
 
 ## FAQ
