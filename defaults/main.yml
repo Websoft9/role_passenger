@@ -4,5 +4,5 @@ passenger_integration: nginx
 
 
 #CURRENT LANGUAGE: python | ruby | node | meteor
-#passenger_language: python
+passenger_language: python
 
