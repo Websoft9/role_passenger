@@ -8,10 +8,6 @@
     shell: sudo sh -c "passenger -v 1>> /data/logs/install_version.txt"
 
   - name: Check Passgener Service
-    shell: systemctl status canvas_init | grep Active*
-    register: check_canvas_init_service
-    notify: check_canvas_init_service
-
-
-- name: Check installation
-  shell: /usr/sbin/passenger-memory-stats
+    shell: /usr/sbin/passenger-memory-stats | grep watchdog
+    register: check_passenger_service
+    notify: check_passenger_service
