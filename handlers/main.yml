@@ -1,0 +1,3 @@
+- name: check_passenger_service
+  debug:
+    var: check_passenger_service.stdout
