@@ -11,3 +11,7 @@
     shell: systemctl status canvas_init | grep Active*
     register: check_canvas_init_service
     notify: check_canvas_init_service
+
+
+- name: Check installation
+  shell: /usr/sbin/passenger-memory-stats
