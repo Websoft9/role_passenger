@@ -23,6 +23,3 @@
     a2enmod passenger
     systemctl restart nginx
   when: passenger_integration == "nginx"
-
-- name: Check installation
-  shell: /usr/sbin/passenger-memory-stats
