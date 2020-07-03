@@ -19,6 +19,3 @@
     yum install -y nginx-mod-http-passenger || sudo yum-config-manager --enable cr && sudo yum install -y nginx-mod-http-passenger
     systemctl restart nginx
   when: passenger_integration == "nginx"
-
-- name: Check installation
-  shell: /usr/sbin/passenger-memory-stats
