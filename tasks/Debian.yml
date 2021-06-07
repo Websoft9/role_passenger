@@ -10,14 +10,14 @@
   shell: apt-get install -y passenger
   when: passenger_integration == "standalone"
 
-- name: Instal Passenger integrate {{passenger_integration}}
+- name: Instal Passenger integrate apache
   shell: |
     apt-get install -y libapache2-mod-passenger
     a2enmod passenger
     systemctl restart apache2
   when: passenger_integration == "apache"
 
-- name: Instal Passenger integrate {{passenger_integration}}
+- name: Instal Passenger integrate nginx
   shell: |
     apt-get install -y libnginx-mod-http-passenger
     a2enmod passenger
